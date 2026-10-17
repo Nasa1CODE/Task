@@ -1,29 +1,68 @@
 # Impact — <TICKET-ID>
 
-## Phạm vi
+> Theo [rules/04-create-impact.md](../rules/04-create-impact.md). Dựng nháp khi lập plan; **finalize sau khi code xong** theo ảnh hưởng thật.
 
-- Logic:
-- Dữ liệu/schema:
-- Contract:
+## 1. Mục đích
 
-## Thành phần bị ảnh hưởng
+<Thay đổi gì, thuộc ticket nào, service nào — một đoạn ngắn.>
 
-| Layer | Thành phần/file | Mức | Lý do |
+## 2. Phạm vi thay đổi
+
+- Chỉ logic: <có/không>
+- Đụng dữ liệu: <có/không>
+- Đổi schema / migration: <có/không — **nói thẳng nếu KHÔNG**>
+- Đổi hợp đồng (API / message hàng đợi): <có/không>
+
+## 3. Thành phần bị ảnh hưởng
+
+### Backend
+
+| Service | File / method | Mức | Lý do |
 |---|---|---|---|
-| | | Thấp/Trung bình/Cao | |
+| | | Thấp/TB/Cao | |
 
-## Xác nhận không bị ảnh hưởng
+### Frontend
 
-| Vùng | Lý do |
+| Màn hình / route | File | Mức | Lý do |
+|---|---|---|---|
+| | | | |
+
+### Database
+
+| Bảng / cột | Thay đổi | Mức | Migration |
+|---|---|---|---|
+| | | | |
+
+### Hàng đợi / tích hợp / cấu hình
+
+| Thành phần | Thay đổi | Mức | Ghi chú |
+|---|---|---|---|
+| | | | |
+
+> Cấu hình chỉ ghi **tên khóa**, không ghi giá trị.
+
+## 4. Xác nhận KHÔNG bị ảnh hưởng
+
+> Liệt kê cụ thể. "Mọi thứ còn lại không ảnh hưởng" là **không chấp nhận được**.
+
+| Vùng | Vì sao không bị ảnh hưởng |
 |---|---|
 | | |
 
-## Rủi ro, hạn chế và việc chưa kiểm chứng
+## 5. Rủi ro & hạn chế đã biết
 
-| Mục | Xử lý/lý do |
+| Rủi ro / hạn chế | Mức | Xử lý |
+|---|---|---|
+| | | |
+
+> Chạm luồng công khai, phân quyền, đa tenant, hoặc dữ liệu thuế → **bắt buộc** có dòng về rủi ro lộ dữ liệu.
+
+## 6. Chưa được kiểm chứng
+
+| Việc chưa làm | Vì sao |
 |---|---|
 | | |
 
-## Kết luận
+## 7. Kết luận
 
-<Mức rủi ro tổng thể và khuyến nghị trước release.>
+<Một câu về mức rủi ro tổng thể + khuyến nghị trước khi phát hành.>

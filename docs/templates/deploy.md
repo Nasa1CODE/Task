@@ -1,28 +1,58 @@
 # Deploy — <TICKET-ID>
 
-> Chỉ dùng khi chạm DB, config, queue hoặc hạ tầng. Không ghi secret.
+> **Chỉ tạo file này khi có thay đổi DB / cấu hình / môi trường / hàng đợi.** Không có thì bỏ qua.
+> **Không ghi giá trị secret** — chỉ ghi tên khóa và người/nơi giữ giá trị.
 
-## Loại thay đổi
+## 1. Loại thay đổi
 
-## Thứ tự triển khai
+- [ ] Migration DB
+- [ ] Thêm/đổi khóa cấu hình
+- [ ] Thay đổi hàng đợi / topic
+- [ ] Thay đổi môi trường / hạ tầng
+- [ ] Khác: <ghi rõ>
+
+## 2. Thứ tự triển khai
+
+> Ghi rõ cái gì chạy trước, service nào deploy trước để hệ thống không gãy giữa chừng.
 
 1. 
+2. 
 
-## Backup và tương thích
+## 3. Migration DB
 
-- Backup/migration precondition:
-- Tương thích API/message cũ:
+| Migration | Service | Bảng ảnh hưởng | Thời gian ước tính |
+|---|---|---|---|
+| | | | |
 
-## Migration/config/queue
+- [ ] Đã **backup DB** trước khi chạy (bắt buộc với staging/production)
+- [ ] Đã review SQL sinh ra
 
-| Thành phần | Thay đổi | Owner |
+## 4. Khóa cấu hình cần thêm/đổi
+
+| Khóa | Service | Bắt buộc? | Ai cấp giá trị |
+|---|---|---|---|
+| | | | |
+
+> Chỉ tên khóa. Giá trị trao đổi qua kênh bảo mật, không đưa vào tài liệu hay commit.
+
+## 5. Hàng đợi / topic
+
+| Queue / Topic | Thay đổi | Bên gửi | Bên nhận |
+|---|---|---|---|
+| | | | |
+
+> Đổi hợp đồng message phải deploy đồng bộ hai phía, nếu không message cũ sẽ kẹt.
+
+## 6. Kiểm tra sau khi deploy
+
+| # | Kiểm gì | Kết quả kỳ vọng |
 |---|---|---|
-| | | |
+| 1 | | |
 
-## Smoke check và rollback
+## 7. Rollback
 
-| Kiểm tra | Kết quả kỳ vọng |
-|---|---|
-| | |
+<Các bước quay lui. Nếu có migration không thể rollback tự động → nói rõ và mô tả cách khôi phục từ backup.>
 
-Rollback: <bước quay lui>
+## 8. Ảnh hưởng người dùng
+
+<Có downtime không? Có cần báo trước cho khách hàng không?>

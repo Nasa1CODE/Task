@@ -1,13 +1,15 @@
-# Commands
+# Slash commands (Claude Code)
 
-Các command là lớp tiện ích gọi Rule 00–04. Sao chép vào công cụ agent đang dùng hoặc gọi rule tương ứng trực tiếp. Không chứa đường dẫn máy tính, tên dự án hay ticket prefix cụ thể.
+5 lệnh ánh xạ 5 rule để chạy nhanh. Đăng ký bằng cách copy các file `.md` trong thư mục này vào `.claude/commands/` của folder cha (`D:\BILL`), rồi gọi:
 
-| Command | Input | Output |
-|---|---|---|
-| `init-docs` | service registry + source | diff architecture/specs/database/design |
-| `create-plan <TICKET-ID>` | expectation + base docs | plan, tasks, impact draft |
-| `create-testcase <TICKET-ID>` | expectation | testcase trace AC |
-| `create-impact <TICKET-ID>` | expectation + plan + source | impact draft/final |
-| `implement-task <TICKET-ID>` | approved plan/task | code evidence, report, deploy when needed |
+| Lệnh | Chạy rule |
+|---|---|
+| `/init-docs` | [rules/00-init-docs.md](../rules/00-init-docs.md) |
+| `/create-plan <TICKET-ID>` | [rules/01-create-plan.md](../rules/01-create-plan.md) |
+| `/implement-task <TICKET-ID>` | [rules/02-implement-task.md](../rules/02-implement-task.md) |
+| `/create-testcase <TICKET-ID>` | [rules/03-create-testcase.md](../rules/03-create-testcase.md) |
+| `/create-impact <TICKET-ID>` | [rules/04-create-impact.md](../rules/04-create-impact.md) |
 
-Mỗi command phải đọc rule tương ứng và project-config khi rule yêu cầu. Thiếu context hoặc approval là điều kiện dừng, không phải lý do để đoán.
+**Mọi lệnh đều bắt đầu bằng:** `bash docs/scripts/check-layout.sh` (phải PASS) → `git pull` trong `docs/`.
+
+**AI thiếu context → HỎI.** Không tự quyết, không tự approve, không tự đổi status feature.

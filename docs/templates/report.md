@@ -1,35 +1,55 @@
 # Report — <TICKET-ID>
 
-> Chỉ ghi kết quả thật.
+> Theo [rules/02-implement-task.md](../rules/02-implement-task.md). **Chỉ ghi kết quả THẬT.**
+> Không chạy được thì ghi rõ cái gì không chạy và vì sao — tuyệt đối không báo "đã test" khi chưa test.
 
-## Đã làm
+## 1. Đã làm gì
 
-## File thay đổi
+<Tóm tắt, truy về task nào trong `tasks.md`.>
+
+## 2. File đã thay đổi (thật)
 
 | File | Thay đổi |
 |---|---|
 | | |
 
-## Kiểm chứng
+## 3. Kết quả kiểm chứng
 
-| Lệnh/bước | Kết quả thật |
+### Tự động
+
+| # | Lệnh đã chạy | Kết quả |
+|---|---|---|
+| 1 | | |
+
+### Thủ công
+
+| Case | Người nghiệm thu | Ngày | Bằng chứng |
+|---|---|---|---|
+| TC-xx | | | <ảnh / log / mã giao dịch> |
+
+### Chưa chạy được
+
+| Việc | Vì sao |
 |---|---|
 | | |
 
-## Chưa chạy được / việc còn lại
+## 4. Sai khác so với plan
 
-| Việc | Lý do | Owner/follow-up |
-|---|---|---|
-| | | |
+| Điểm khác | Lý do |
+|---|---|
+| | |
 
-## Sai khác so với plan
+## 5. Việc còn lại / hạn chế đã biết
 
-| Sai khác | Lý do | Tác động |
-|---|---|---|
-| | | |
+- 
 
-## Commit/PR
+## 6. Đề xuất cập nhật docs (Gate 2)
 
-| Service | Link |
+- `specs/<domain>.md`: <sửa gì>
+- `architecture.md` / `databases/README.md`: <sửa gì>
+
+## 7. Link commit / PR
+
+| Service | Commit / PR |
 |---|---|
 | | |

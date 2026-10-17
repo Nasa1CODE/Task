@@ -1,9 +1,27 @@
-# Database Documentation
+# Database SQL Folder
 
-> CONTENT. Ghi schema quan sát được từ source/database review; không ghi credential hoặc dump dữ liệu thật.
+This folder stores SQL files for BillCloud database objects.
 
-## Quy ước
+## Naming convention
 
-- Mỗi bảng/view quan trọng có một file mô tả hoặc SQL schema đã được review.
-- Mọi thay đổi schema phải ghi rollout và rollback trong `features/<TICKET-ID>/deploy.md`.
-- Chính sách migration cụ thể nằm ở `project.md`.
+Use one SQL file per database table:
+
+- Tenant database tables: `databasetenant.<table_name>.sql`
+- Host database tables: `databasehost.<table_name>.sql`
+
+Examples:
+
+```text
+databasetenant.vs_hoadon.sql
+databasetenant.vs_bangke.sql
+databasehost.abptenants.sql
+databasehost.abpusers.sql
+```
+
+## Rules
+
+- Keep SQL files as plain `.sql` scripts.
+- Do not commit connection strings, passwords, tokens, or production-only secrets.
+- Prefer lowercase file names for consistency.
+- If a table exists in both host and tenant databases, create two separate files using the correct prefix.
+- **New column nullability:** when adding a new column, default it to `NULL` unless it is an index column (primary key, unique key, or foreign key). Index columns must be `NOT NULL`.

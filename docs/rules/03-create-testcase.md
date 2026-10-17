@@ -1,13 +1,26 @@
-# Rule 03 — Create Testcase
+# Rule 03 - Create Testcase
 
-## Nguồn và nguyên tắc
+Use this rule after `expect.md` exists and before implementation starts. `plan.md` may be referenced, but test cases must come from the expected behavior, not from implementation assumptions.
 
-Sinh `features/<TICKET-ID>/testcase.md` từ `expect.md`, không suy ra hành vi từ code/plan. Plan chỉ dùng để biết service và cách chạy verification.
+## Required Input
 
-## Yêu cầu
+- `docs/features/<TICKET-ID>/expect.md`
+- `docs/features/<TICKET-ID>/plan.md` when available
+- Relevant `docs/specs/*.md` files
 
-1. Có bảng traceability AC → testcase; mỗi AC ít nhất một case.
-2. Bao phủ luồng chính, input biên, lỗi/negative, hồi quy vùng confirmed-unaffected, permission và tenant/data isolation khi phù hợp.
-3. Case phải có tiền đề, dữ liệu an toàn, bước tái lập được và kết quả quan sát được.
-4. Tích hợp không chạy local phải là `manual`, nêu lý do và người nghiệm thu.
-5. Không dùng customer data, secret hoặc token thật.
+## Required Output
+
+- `docs/features/<TICKET-ID>/testcase.md`
+
+## Workflow
+
+1. Run `git pull` inside `docs/` before reading or writing docs.
+2. Read `expect.md` and extract acceptance criteria, out-of-scope items, and open questions.
+3. Read `plan.md` only to understand affected services and verification commands.
+4. Create `testcase.md` with positive, negative, regression, permission, integration, and edge-case scenarios where applicable.
+5. Include expected results and status for each scenario.
+6. Mark scenarios as not run until real verification evidence exists.
+
+## Rule
+
+Do not derive expected behavior from implementation code. Expected behavior must trace back to `expect.md` and approved product requirements.

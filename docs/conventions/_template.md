@@ -1,28 +1,41 @@
-# Conventions — <SERVICE_OR_GROUP>
+# Conventions — `<nhóm hoặc local-folder-name>`
+
+> Quy ước code riêng của một service/nhóm service (kiểu "skill"). Copy file này thành `conventions/<tên>.md` và điền theo source thật.
+> Quy ước **dùng chung mọi service** nằm ở [../project.md](../project.md) §4–8 — đừng chép lại ở đây.
 
 ## Nhận dạng
 
-- **Service/group:** `<service-key>`
-- **Vai trò:**
-- **Stack:**
+- **service / nhóm:** `<theo Service registry ở ../AGENTS.md>`
+- **Vai trò:** `<một câu>`
+- **Stack:** `<ngôn ngữ / framework / version>`
 
-## Layer map
+## Layer map — đặt code ở đâu
 
-| Việc cần làm | Đặt ở đâu |
+| Việc cần làm | Đặt ở |
 |---|---|
-| API/entry point | |
+| Entity | |
+| DTO | |
 | Business logic | |
-| Data access | |
-| DTO/model | |
-| Config | |
-| UI/route (nếu có) | |
+| Truy vấn phức tạp | |
+| Cấu hình | |
+| Màn hình / route (nếu FE) | |
 
-## Kiểm chứng
+## Quy ước đặt tên
 
-```text
-<build/test command>
+`<Tiền tố bảng, hậu tố class, quy ước file/thư mục — chỉ ghi cái khác với quy ước chung.>`
+
+## Lệnh thường dùng
+
+```bash
+# build
+# run
+# test
 ```
 
-## Pitfall và vùng cấm thay đổi
+## Pitfall của service này
 
-- <generated files, build outputs, contracts, legacy modules>
+`<Những chỗ dễ sai mà chỉ người từng làm mới biết: thư mục trùng tên, phần legacy, thứ tự khởi động, file sinh tự động, quirk cấu hình, tên repo/README lệch source.>`
+
+## Không được đụng
+
+`<File/thư mục sinh tự động hoặc build output.>`
