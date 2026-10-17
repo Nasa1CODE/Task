@@ -18,6 +18,16 @@
 
 ## Chưa chạy được / việc còn lại
 
+| Việc | Lý do | Owner/follow-up |
+|---|---|---|
+| | | |
+
+## Sai khác so với plan
+
+| Sai khác | Lý do | Tác động |
+|---|---|---|
+| | | |
+
 ## Commit/PR
 
 | Service | Link |

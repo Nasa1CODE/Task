@@ -8,6 +8,11 @@
 
 1. 
 
+## Backup và tương thích
+
+- Backup/migration precondition:
+- Tương thích API/message cũ:
+
 ## Migration/config/queue
 
 | Thành phần | Thay đổi | Owner |

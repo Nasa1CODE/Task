@@ -23,3 +23,7 @@
 | Mục | Xử lý/lý do |
 |---|---|
 | | |
+
+## Kết luận
+
+<Mức rủi ro tổng thể và khuyến nghị trước release.>

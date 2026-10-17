@@ -1,8 +1,28 @@
-# Rule 00 — Initialize base documentation
+# Rule 00 — Initialize / Refresh Base Docs
 
-Đọc source theo service registry và chỉ đề xuất diff cho `architecture.md`, `specs/`, `databases/` và `design.md`.
+## Mục tiêu
 
-- Không suy đoán; fact nào chưa rõ ghi `TBD — owner: <ROLE>`.
-- Mỗi flow phải định danh service, entry point, data/integration thật.
-- Không đưa secret, token hay dữ liệu khách hàng vào docs.
-- Gate 2 của TechLead duyệt mọi thay đổi tài liệu nền.
+Khảo sát source thật theo service registry và tạo **diff đề xuất** cho `architecture.md`, `specs/`, `databases/README.md` và `design.md`. Đây là CONTENT; không copy từ dự án khác.
+
+## Đầu vào
+
+- `AGENTS.md`: registry và ranh giới service.
+- `project.md`, convention service, source repo đúng scope.
+- Config/source chỉ để đọc tên khóa và hành vi; không chép secret.
+
+## Quy trình
+
+1. Kiểm layout, trạng thái Git và đọc PROFILE.
+2. Với mỗi service: xác định entry point, layer business/data, contract API/message, storage, auth và integration thực tế.
+3. Nhóm module theo domain; mỗi domain một file trong `specs/`.
+4. Ghi architecture với trách nhiệm service, luồng, dependency và ranh giới trust/data.
+5. Ghi database theo object thật, ownership và quy tắc migration/rollback.
+6. Chỉ khi có frontend, ghi design system từ component/style có thật.
+7. Đưa mọi điểm chưa chắc vào `Câu hỏi mở` cùng owner.
+
+## Điều cấm và checklist
+
+- Không bịa integration, class, method, queue/topic hay schema.
+- Mỗi flow phải nêu service-key và entry point có thật.
+- Không ghi secret, token, PII hoặc dữ liệu production.
+- Chỉ đề xuất diff; TechLead duyệt Gate 2 trước merge.

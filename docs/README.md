@@ -1,27 +1,42 @@
 # Project Documentation Kit
 
-Khung tài liệu theo hướng spec-driven cho một dự án phần mềm. Repo này không chứa source code nghiệp vụ; nó giúp BA, DEV, QA, TechLead và AI cùng làm việc theo một nguồn tài liệu kiểm chứng được.
+Khung **spec-driven development** để BA, DEV, QA, TechLead và AI làm việc với cùng một nguồn sự thật. Repo này quản lý yêu cầu, kiến trúc, tác động, kế hoạch, bằng chứng kiểm thử và triển khai; source code vẫn thuộc các repo/service của dự án.
 
-## Bắt đầu dự án mới
+## Ba lớp tài liệu
 
-1. Sao chép toàn bộ thư mục này thành repo `docs` của dự án.
-2. Điền `AGENTS.md`, `project.md`, hai file `rules/*.project-config.md` từ các file `.template.md` tương ứng.
-3. Khai báo convention theo từng service/nhóm service trong `conventions/`.
-4. Khảo sát source thật bằng Rule 00 và tạo `architecture.md`, `specs/`, `databases/`, `design.md`.
-5. Mỗi ticket dùng một thư mục `features/<TICKET-ID>/`.
-
-## Phân lớp
-
-| Lớp | Thư mục/tệp | Xử lý khi dùng cho dự án khác |
+| Lớp | Nội dung | Khi dùng cho dự án mới |
 |---|---|---|
-| ENGINE | `rules/`, `templates/`, `commands/`, `scripts/` | Giữ nguyên, chỉ sửa nếu quy trình chung thay đổi. |
-| PROFILE | `AGENTS.md`, `project.md`, `conventions/`, `*.project-config.md` | Điền lại theo source và cách làm việc của dự án. |
-| CONTENT | `architecture.md`, `specs/`, `databases/`, `design.md`, `features/` | Sinh từ source thật, không sao chép từ dự án cũ. |
+| **ENGINE** | `rules/`, `templates/`, `commands/`, `scripts/` | Giữ nguyên; chỉ thay đổi khi quy trình chung thay đổi. |
+| **PROFILE** | `AGENTS.md`, `project.md`, `conventions/`, `*.project-config.md` | Điền lại từ cách vận hành và source thật của dự án. |
+| **CONTENT** | `architecture.md`, `specs/`, `databases/`, `design.md`, `features/` | Sinh mới; tuyệt đối không sao chép fact, schema hoặc ticket dự án cũ. |
+
+## Khởi tạo dự án mới
+
+1. Điền metadata, service registry và chính sách an toàn trong `AGENTS.md`.
+2. Điền stack, Git/release, data/security policy ở `project.md`.
+3. Sao chép hai `rules/*.project-config.template.md` thành file config tương ứng và điền giá trị dự án.
+4. Tạo convention cho mỗi nhóm service từ `conventions/_template.md`.
+5. Chạy Rule 00 để khảo sát source và **đề xuất** `architecture.md`, `specs/`, `databases/`, `design.md`.
 
 ## Vòng đời feature
 
-`expect → plan/tasks/impact/testcase → Gate 1 → implementation → report/deploy → Gate 2`
+```text
+expect → plan + tasks + impact + testcase → Gate 1 → implementation → report/deploy → Gate 2
+```
 
-- `expect.md` giữ trạng thái feature.
-- Chỉ TechLead phê duyệt Gate 1 (cho phép code) và Gate 2 (cập nhật tài liệu nền).
-- Báo cáo chỉ được ghi kết quả kiểm chứng thật.
+- `expect.md` do BA sở hữu và là nguồn duy nhất của trạng thái feature.
+- **Gate 1:** DEV review và TechLead phê duyệt kế hoạch trước khi code.
+- **Gate 2:** TechLead phê duyệt mọi cập nhật tài liệu nền sau khi có bằng chứng thực tế.
+- `report.md` chỉ được ghi lệnh, kết quả và file thay đổi thật.
+
+## Bộ rule
+
+| Rule | Mục đích |
+|---|---|
+| `00-init-docs` | Khảo sát source và xây dựng tài liệu nền. |
+| `01-create-plan` | Tạo kế hoạch, task và đánh giá tác động từ expectation. |
+| `02-implement-task` | Thực thi task đã duyệt, xác minh và báo cáo. |
+| `03-create-testcase` | Sinh testcase từ acceptance criteria. |
+| `04-create-impact` | Dựng/finalize đánh giá blast radius. |
+
+AI không tự phê duyệt, commit, push, merge hoặc deploy nếu chưa được người dùng/owner ủy quyền rõ ràng.

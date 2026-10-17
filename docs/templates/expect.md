@@ -22,3 +22,11 @@ status: draft
 | Câu hỏi | Owner | Trạng thái |
 |---|---|---|
 | | | chờ |
+
+## Ảnh hưởng người dùng và dữ liệu
+
+<Actor nào chịu tác động? Có migration, thông báo, permission hoặc chuyển đổi dữ liệu không?>
+
+## Tài liệu liên quan
+
+- <spec/domain/link ticket>

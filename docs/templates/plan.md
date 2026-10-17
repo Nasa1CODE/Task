@@ -8,6 +8,10 @@ service-repo: <repo path>
 
 <Trace tới AC trong expect.md.>
 
+## Bối cảnh và nguyên nhân gốc
+
+<Chỉ ghi fact từ source/log/bằng chứng thật. Với feature mới, nêu context thay vì suy đoán root cause.>
+
 ## Câu hỏi chặn
 
 - <câu hỏi hoặc Không có>
@@ -30,6 +34,18 @@ service-repo: <repo path>
 | Lệnh/bước | Kết quả kỳ vọng |
 |---|---|
 | | |
+
+## Thứ tự thực hiện và phụ thuộc
+
+<Thứ tự triển khai, lý do, dependency producer/consumer hoặc frontend/backend nếu có.>
+
+## Đề xuất cập nhật docs (Gate 2)
+
+| Tài liệu | Đề xuất |
+|---|---|
+| `specs/` | |
+| `architecture.md` | |
+| `databases/` / `design.md` | |
 
 ## Rủi ro và rollback
 

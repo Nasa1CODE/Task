@@ -18,4 +18,10 @@
 - **File dự kiến chạm:**
 - **Commit/PR:**
 
+## Quy tắc tách task
+
+- Tách khi task chạm nhiều service, hơn một vùng độc lập hoặc có hơn một outcome.
+- Một task chỉ có một service-key; việc đa repo phải có task riêng theo repo.
+- `blocked` ghi blocker/owner; `cancelled` ghi lý do.
+
 Status hợp lệ: `pending`, `in-progress`, `completed`, `blocked`, `cancelled`. Task bị huỷ phải nêu lý do.

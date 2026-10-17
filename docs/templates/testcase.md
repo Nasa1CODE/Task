@@ -17,3 +17,11 @@
 - **Bước:**
   1. 
 - **Kết quả mong đợi:**
+
+## Coverage checklist
+
+- Luồng chính của từng AC.
+- Dữ liệu biên và lỗi/negative.
+- Permission, authorization hoặc cách ly tenant/data khi phù hợp.
+- Hồi quy cho vùng ghi trong `impact.md` là không bị ảnh hưởng.
+- Case manual có owner, ngày nghiệm thu và bằng chứng sau khi chạy.
